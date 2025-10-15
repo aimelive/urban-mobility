@@ -1,69 +1,134 @@
-# NYC Taxi Trip Analysis Full-Stack Application
+# NYC Taxi Trip Analytics
 
-This project is a full-stack web application for analyzing and visualizing the NYC Taxi Trip dataset. It was built to demonstrate data processing, database design, backend API development, and frontend data visualization.
+Enterprise-level web application for analyzing and visualizing NYC taxi trips.  
+Provides insights on trip counts, fares, distances, and pickup locations using a clean interactive interface.
+
+---
+
+## Table of Contents
+
+1. [Features](#features)
+2. [Dataset](#dataset)
+3. [Project Structure](#project-structure)
+4. [Setup Instructions](#setup-instructions)
+5. [Usage](#usage)
+6. [Tech Stack](#tech-stack)
+
+---
+
+## Features
+
+- Interactive dashboard with stats cards: Total Trips, Total Revenue, Avg Distance, Avg Fare.
+- Filter trips by date, fare, and distance.
+- Hourly trip trends and geographic distribution charts.
+- Paginated trip table with sorting functionality.
+- Responsive and modern UI design.
+
+---
+
+## Dataset
+
+- Dataset: NYC Taxi Trip Duration (CSV format)
+- Fields include pickup and dropoff times, passenger count, trip distance, fare, tip, and locations.
+- CSV is stored in `backend/data/taxi_data.csv`.
+
+---
 
 ## Project Structure
 
-- `/backend`: Contains the Flask backend application, data processing scripts, and the SQLite database.
-- `/frontend`: Contains the vanilla HTML, CSS, and JavaScript frontend application.
+```
 
-## Setup and Installation
+backend/           # Python backend and database scripts
+frontend/          # UI files (HTML, CSS, JS)
+README.md          # Project documentation
+
+````
+
+---
+
+## Setup Instructions
 
 ### Prerequisites
 
-- Python 3.x
-- pip (Python package installer)
-- A web browser
+- Python 3.9+
+- pip
+- Node.js (optional, if using local dev server for frontend)
+- Git
 
 ### Backend Setup
 
-1.  **Navigate to the backend directory:**
-    ```bash
-    cd nyc-taxi-app/backend
-    ```
+1. Navigate to the backend folder:
+```bash
+cd backend
+````
 
-2.  **Install Python dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+2. Create a virtual environment:
 
-3.  **Run the data processing script:**
-    This script will clean the raw `train.csv` data, create a SQLite database (`taxi_trips.db`), and populate it. This is a one-time setup process and may take a significant amount of time.
-    *Note: Make sure the `train.csv` file is located in the root directory of the project (`/home/abdalazizi/Desktop/assignment_01`).*
-    ```bash
-    python3 data_processing.py
-    ```
+```bash
+python -m venv venv
+```
 
-4.  **Start the backend server:**
-    ```bash
-    python3 app.py &
-    ```
-    The backend server will be running at `http://127.0.0.1:5001`.
+3. Activate the virtual environment:
+
+* Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+* Mac/Linux:
+
+```bash
+source venv/bin/activate
+```
+
+4. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Create the database:
+
+```bash
+python create_database.py
+```
+
+6. Run the backend server:
+
+```bash
+python app.py
+```
+
+Backend will start on `http://localhost:5011`.
 
 ### Frontend Setup
 
-1.  **Navigate to the frontend directory:**
-    ```bash
-    cd nyc-taxi-app/frontend
-    ```
+1. Navigate to the frontend folder:
 
-2.  **Start a simple web server:**
-    ```bash
-    python3 -m http.server 8080 &
-    ```
+```bash
+cd frontend
+```
 
-3.  **Access the application:**
-    Open your web browser and navigate to `http://localhost:8080`.
+2. Open `index.html` in your browser or serve it using a local server (e.g., Live Server extension for VSCode).
 
-## Video Walkthrough
+---
 
-[Link to your 5-minute video walkthrough will go here.]
+## Usage
 
-## Documentation
+1. Open the dashboard in your browser.
+2. Apply filters to analyze trips.
+3. View charts and stats.
+4. Paginate and sort trip records in the table.
 
-This project also includes a detailed PDF documentation report that covers:
-- Problem Framing and Dataset Analysis
-- System Architecture and Design Decisions
-- Algorithmic Logic and Data Structures (including an analysis of the manually implemented Quick Sort algorithm)
-- Insights and Interpretation from the data
-- Reflection and Future Work
+---
+
+## Tech Stack
+
+* **Backend**: Python, Flask/FastAPI, SQLite
+* **Frontend**: HTML, CSS, JavaScript, Chart.js
+* **Database**: SQLite
+* **Tools**: VSCode, Git, GitHub
+
+---
+
