@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Taxi Trip Dashboard</title>
+    <meta name="description" content="NYC Taxi Trips Analytics Dashboard">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Loading taxi trip data...</p>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>NYC Taxi Trip Dashboard</h1>
+            <p>Data-driven urban mobility insights</p>
+        </header>
+
+        <main class="container main-content">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p class="stat-title">Total Trips</p>
+                    <p class="stat-value" id="total-trips">0</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Total Revenue</p>
+                    <p class="stat-value" id="total-revenue">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Average Distance</p>
+                    <p class="stat-value" id="avg-distance">0.00 mi</p>
+                </div>
+                <div class="stat-card">
+                    <p class="stat-title">Average Fare</p>
+                    <p class="stat-value" id="avg-fare">$0.00</p>
+                </div>
+            </div>
+
+            <!-- Filter Panel -->
+            <section class="card filter-panel">
+                <div class="card-header">
+                    <h3>Filter Trips</h3>
+                </div>
+                <div class="card-content">
+                    <div class="filter-grid">
+                        <div class="input-group">
+                            <label>Date From</label>
+                            <input type="date" id="date-from">
+                        </div>
+                        <div class="input-group">
+                            <label>Date To</label>
+                            <input type="date" id="date-to">
+                        </div>
+                        <div class="input-group">
+                            <label>Min Fare ($)</label>
+                            <input type="number" id="min-fare" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label>Max Fare ($)</label>
+                            <input type="number" id="max-fare" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label>Min Distance (mi)</label>
+                            <input type="number" id="min-distance" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label>Max Distance (mi)</label>
+                            <input type="number" id="max-distance" step="0.1">
+                        </div>
+                    </div>
+                    <button id="apply-filters" class="btn-primary">Apply Filters</button>
+                </div>
+            </section>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Trips by Hour</h3>
+                    </div>
+                    <div class="card-content">
+                        <canvas id="trips-chart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Geographic Distribution</h3>
+                    </div>
+                    <div class="card-content">
+                        <canvas id="heatmap-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Records Table -->
+            <section class="card">
+                <div class="card-header">
+                    <h3>Trip Records</h3>
+                </div>
+                <div class="card-content">
+                    <div class="table-container">
+                        <table id="trips-table">
+                            <thead>
+                                <tr>
+                                    <th><button class="sort-btn" data-field="pickup_datetime">Pickup Time</button></th>
+                                    <th>Duration</th>
+                                    <th><button class="sort-btn" data-field="trip_distance">Distance</button></th>
+                                    <th>Passengers</th>
+                                    <th><button class="sort-btn" data-field="fare_amount">Fare</button></th>
+                                    <th>Tip</th>
+                                    <th><button class="sort-btn" data-field="total_amount">Total</button></th>
+                                    <th>Payment</th>
+                                </tr>
+                            </thead>
+                            <tbody id="trips-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div id="pagination-controls" class="pagination-controls">
+                        <button id="prev-page" class="btn">Previous</button>
+                        <span id="page-info"></span>
+                        <button id="next-page" class="btn">Next</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
