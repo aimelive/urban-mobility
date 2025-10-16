@@ -131,4 +131,13 @@ cd frontend
 * **Tools**: VSCode, Git, GitHub
 
 ---
+## Documentation
+1. here is the link to the database dump but they will ask you to downlaod it first because it's large
+[Download NYC database dump)](https://drive.google.com/file/d/1oQkvdsvp8r6VyG9z9LsYwNRCCrfeYKRV/view?usp=sharing)
+
+2. Below is the video demo link
+   [DEMO VIDEO)](https://drive.google.com/file/d/1_C5-mUTLNnDKueLnfUd4hPbGGWJOMYSH/view?usp=sharing)
+
+3. Report of our application
+   
 
