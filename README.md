@@ -139,5 +139,8 @@ cd frontend
    [DEMO VIDEO)](https://drive.google.com/file/d/1_C5-mUTLNnDKueLnfUd4hPbGGWJOMYSH/view?usp=sharing)
 
 3. Report of our application
-   
+   ## Documentation
+
+You can read the full technical report [here](urban-mobility/NYC%20Taxi%20Trip%20Analytics%20Technical%20Report.pdf).
+
 
